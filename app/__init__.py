@@ -48,4 +48,13 @@ def create_app(test_config=None):
         send_message = httputils.create_assignment_message(j_data)
         return wxutils.send_message(interview_nick_name, send_message)
 
+    @app.route('/pyapi/realTimeNotify', methods=['POST'])
+    def real_time_notify():
+        j_data = json.loads(request.data)
+        print(j_data)
+        wx_id = j_data.get('wxId')
+        message = j_data.get('message')
+        is_jump = j_data.get('isJump')
+        return wxutils.send_message(wx_id, message, is_jump)
+
     return app
