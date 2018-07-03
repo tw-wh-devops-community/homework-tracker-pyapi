@@ -7,4 +7,4 @@ FAIL_RETURN_CODE = '9999'
 
 NOT_FOUND_FRIENDS = '找不到对应的好友'
 
-JUMP_IMAGE_PATH = '/Users/huxhu/Program/python/2018-06-27/homework-tracker-notify/images/heart.png'
+JUMP_IMAGE_PATH = 'images/heart.png'
