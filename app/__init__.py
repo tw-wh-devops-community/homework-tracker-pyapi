@@ -14,6 +14,7 @@ from app.model.MyResponse import MyResponse
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
+    # 解决跨域请求的问题
     CORS(app, supports_credentials=True)
     app.response_class = MyResponse
     app.config.from_mapping(
@@ -33,6 +34,7 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+    wxutils.keep_login()
 
     # a simple page that says hello
     @app.route('/hello')
