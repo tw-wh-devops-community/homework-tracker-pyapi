@@ -29,7 +29,10 @@ def keep_login():
 # 统一发送消息接口
 def send_message(wx_id, message, is_jump):
     if itchat.check_login != 200:
-        keep_login()
+        try:
+            keep_login()
+        except:
+            return httputils.fail("登录异常")
     friends = itchat.search_friends(remarkName=wx_id)
     if friends is None or len(friends) < 1:
         return httputils.fail(httpconstants.NOT_FOUND_FRIENDS)
