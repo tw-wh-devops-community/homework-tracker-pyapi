@@ -28,7 +28,7 @@ def keep_login():
 
 # 统一发送消息接口
 def send_message(wx_id, message, is_jump):
-    if itchat.check_login is not 200:
+    if itchat.check_login != 200:
         keep_login()
     friends = itchat.search_friends(remarkName=wx_id)
     if friends is None or len(friends) < 1:
@@ -78,4 +78,3 @@ def find_firends(nick_name):
 def send_batch_message(user_lists, message_template):
     for user_name in user_lists:
         send_message(user_name, message_template.format(user_name))
-
