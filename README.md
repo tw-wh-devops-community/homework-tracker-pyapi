@@ -1,0 +1,5 @@
+## run
+
+```sh
+flask run
+```
